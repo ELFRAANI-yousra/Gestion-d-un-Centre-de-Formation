@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class assistant {
+public class Assistant {
 	  @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
