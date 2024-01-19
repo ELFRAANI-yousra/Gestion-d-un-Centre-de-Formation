@@ -24,7 +24,7 @@ public class FormationIndividu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String categorie;
     private String titre;
     private int nombreHeures;
     private double cout;

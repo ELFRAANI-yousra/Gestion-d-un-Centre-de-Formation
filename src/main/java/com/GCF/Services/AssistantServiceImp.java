@@ -3,18 +3,14 @@ package com.GCF.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.GCF.Entities.Assistant;
 import com.GCF.Repositories.IAssistantRepo;
-
-public class AssistantServiceImpl implements AssistantService{
-
-	   private final IAssistantRepo assistantRepository;
-
-	    @Autowired
-	    public AssistantServiceImpl(IAssistantRepo assistantRepository) {
-	        this.assistantRepository = assistantRepository;
-	    }
+@Service
+public class AssistantServiceImp implements AssistantService{
+	   @Autowired
+	   private  IAssistantRepo assistantRepository;
 
 	    @Override
 	    public List<Assistant> getAllAssistants() {
@@ -32,12 +28,8 @@ public class AssistantServiceImpl implements AssistantService{
 	    }
 
 	    @Override
-	    public Assistant updateAssistant(Long id, Assistant assistant) {
-	        if (assistantRepository.existsById(id)) {
-	            assistant.setId(id);
+	    public Assistant updateAssistant(Assistant assistant) {
 	            return assistantRepository.save(assistant);
-	        }
-	        return null;
 	    }
 
 	    @Override
