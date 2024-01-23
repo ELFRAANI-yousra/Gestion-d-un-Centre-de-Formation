@@ -3,6 +3,10 @@ package com.GCF.Entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class FormationIndividu {
+public class Formation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,16 +36,14 @@ public class FormationIndividu {
     private String programmeDetaille;
     private String ville;
     
-    @ManyToOne
-    @JoinColumn(name = "formateur_id")
-    private Formateur formateur;
-   
-    @OneToMany(mappedBy = "formationIndividu", cascade = CascadeType.ALL)
-    private List<Individu> individus = new ArrayList<>(); 
+    @OneToMany(mappedBy="formation", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Individu> individu=new ArrayList<>();
     
-    @OneToMany(mappedBy = "formationIndividu", cascade = CascadeType.ALL)
-    private List<Date> dates = new ArrayList<>();
+    @OneToMany(mappedBy = "formation", cascade = CascadeType.ALL)
+    @JsonManagedReference 
+    private List<Planification> planification = new ArrayList<>();
     
-    @OneToOne(mappedBy = "formationIndividu", cascade = CascadeType.ALL)
-    private Evaluation evaluation;
+    
+  
 }

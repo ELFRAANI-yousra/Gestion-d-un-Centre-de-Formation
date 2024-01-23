@@ -1,10 +1,14 @@
 package com.GCF.Entities;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,12 +28,14 @@ public class Evaluation {
     private int noteSupportCoursTP;
     private int noteMaitriseSujet;
     
-    @OneToOne
-    @JoinColumn(name = "formationIndividu_id")
-    private FormationIndividu formationIndividu;
+    @ManyToOne
+    @JoinColumn(name = "planification_id")
+    @JsonBackReference
+    private Planification planification;
     
     @OneToOne
     @JoinColumn(name = "individu_id")
+    @JsonBackReference
     private Individu individu ;
    
 }

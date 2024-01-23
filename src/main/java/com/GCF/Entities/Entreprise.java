@@ -3,6 +3,8 @@ package com.GCF.Entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +19,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Entreprise {
+public class Entreprise 
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,7 +32,8 @@ public class Entreprise {
     private String email;
     
     @OneToMany(mappedBy = "entreprise", cascade = CascadeType.ALL)
-     private List<FormationEntreprise> formationsEntreprise = new ArrayList<>();
+    @JsonManagedReference 
+     private List<Planification> planification = new ArrayList<>();
 
 }
 

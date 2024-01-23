@@ -2,6 +2,10 @@ package com.GCF.Entities;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,11 +35,17 @@ public class Individu {
     private String telephone;
 
     @ManyToOne
-    @JoinColumn(name = "formationIndividu_id")
-    private FormationIndividu formationIndividu;
-    // Getters and setters
+    @JoinColumn(name = "planification_id")
+    @JsonBackReference
+    private Planification planification;
+    
+    @ManyToOne
+    @JoinColumn(name = "formation_id")
+    @JsonBackReference
+    private Formation formation;
     
     @OneToOne(mappedBy = "individu", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Evaluation evaluation;
    
 }

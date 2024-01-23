@@ -1,6 +1,7 @@
 package com.GCF.Entities;
 
-import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,11 +24,8 @@ private Long id;
 private String date;
 
 @ManyToOne
-@JoinColumn(name = "formationEntreprise_id")
-private FormationEntreprise formationEntreprise;
-
-@ManyToOne
-@JoinColumn(name = "formationIndividu_id")
-private FormationIndividu formationIndividu;
+@JoinColumn(name = "planification_id")
+@JsonBackReference
+private Planification planification;
 
 }
