@@ -30,12 +30,12 @@ public class Evaluation {
     
     @ManyToOne
     @JoinColumn(name = "planification_id")
-    @JsonBackReference
+ 
     private Planification planification;
     
     @OneToOne
     @JoinColumn(name = "individu_id")
-    @JsonBackReference
+  
     private Individu individu ;
    
 }

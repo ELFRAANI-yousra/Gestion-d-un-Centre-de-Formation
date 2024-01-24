@@ -43,9 +43,11 @@ public class FormationController {
 	 
 	 @GetMapping("/formation/filter")
 	 public List<Formation> getFilteredFormations(
-	        @RequestParam(required = false) String date,
-	        @RequestParam(required = false) String categorie,
-	        @RequestParam(required = false) String ville) {
-	    return formationServ.getFilteredFormations(date, categorie, ville);
+	            @RequestParam(required = false) Double minCout,
+	            @RequestParam(required = false) Double maxCout,
+	            @RequestParam(required = false) Integer minNombreHeures,
+	            @RequestParam(required = false) Integer maxNombreHeures,
+	            @RequestParam(required = false) List<String> categories  ) {
+	   return formationServ.getFilteredFormations(minCout, maxCout, minNombreHeures, maxNombreHeures, categories); 
 	}
 }

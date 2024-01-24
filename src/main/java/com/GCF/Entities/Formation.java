@@ -3,6 +3,7 @@ package com.GCF.Entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -34,14 +35,14 @@ public class Formation {
     private double cout;
     private String objectifs;
     private String programmeDetaille;
-    private String ville;
+   
     
     @OneToMany(mappedBy="formation", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonIgnore 
     private List<Individu> individu=new ArrayList<>();
     
     @OneToMany(mappedBy = "formation", cascade = CascadeType.ALL)
-    @JsonManagedReference 
+    @JsonIgnore 
     private List<Planification> planification = new ArrayList<>();
     
     

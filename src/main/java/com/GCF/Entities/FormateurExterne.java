@@ -21,7 +21,7 @@ public class FormateurExterne {
 
     private String nom;
     private String prenom;
-    private List<String> MotsCles;
+    private String MotsCles;
    
     
 

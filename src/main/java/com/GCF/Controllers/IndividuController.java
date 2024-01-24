@@ -39,5 +39,9 @@ public class IndividuController {
 	 public List<Individu> getIndividus() {
 	 	return individuServ.getAllIndividus();
 	 }
+	 @GetMapping("/individu/formation/{id}")
+	 public List<Individu> getformationIndividus(@PathVariable Long id) {
+	 	return individuServ.getIndividualsByFormationId(id);
+	 }
 
 }

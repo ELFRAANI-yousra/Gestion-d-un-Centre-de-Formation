@@ -37,5 +37,13 @@ public class IndividuServiceImp implements IndividuService{
 	    public void deleteIndividu(Long id) {
 	        individuRepository.deleteById(id);
 	    }
+	    @Override
+	    public List<Individu> getIndividualsByFormationId(Long formationId) {
+	        return individuRepository.findByFormationId(formationId);
+	    }
+	    @Override
+	    public List<Individu> getIndividuListByIds(List<Long> individuIds) {
+	        return individuRepository.findAllById(individuIds);
+	    }
 	}
 

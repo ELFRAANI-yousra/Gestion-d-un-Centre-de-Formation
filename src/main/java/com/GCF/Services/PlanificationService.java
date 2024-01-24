@@ -2,6 +2,7 @@ package com.GCF.Services;
 
 import java.util.List;
 
+import com.GCF.Entities.Individu;
 import com.GCF.Entities.Planification;
 
 public interface PlanificationService {
@@ -10,5 +11,7 @@ public interface PlanificationService {
 	    Planification createPlanification(Planification planification);
 	    Planification updatePlanification( Planification updatedPlanification);
 	    void deletePlanification(Long id);
-	}
+	    Planification savePlanificationWithIndividu(Planification planification, List<Long> individuList) ;
+	        	
+}
 

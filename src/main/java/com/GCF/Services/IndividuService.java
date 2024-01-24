@@ -10,4 +10,6 @@ public interface IndividuService {
 	    Individu createIndividu(Individu individu);
 	    Individu updateIndividu(Individu individu);
 	    void deleteIndividu(Long id);
+	    List<Individu> getIndividualsByFormationId(Long formationId);
+	    public List<Individu> getIndividuListByIds(List<Long> individuIds);
 }

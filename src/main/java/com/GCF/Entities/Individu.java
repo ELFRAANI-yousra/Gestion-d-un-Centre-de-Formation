@@ -36,16 +36,16 @@ public class Individu {
 
     @ManyToOne
     @JoinColumn(name = "planification_id")
-    @JsonBackReference
+    
     private Planification planification;
     
     @ManyToOne
     @JoinColumn(name = "formation_id")
-    @JsonBackReference
+    
     private Formation formation;
     
     @OneToOne(mappedBy = "individu", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonIgnore 
     private Evaluation evaluation;
    
 }

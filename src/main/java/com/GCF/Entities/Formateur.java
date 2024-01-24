@@ -3,6 +3,7 @@ package com.GCF.Entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -34,7 +35,7 @@ public class Formateur {
     private String remarques;
 
     @OneToMany(mappedBy = "formateur", cascade = CascadeType.ALL)
-    @JsonManagedReference 
+    @JsonIgnore 
     private List<Planification> planification = new ArrayList<>();
   
 }

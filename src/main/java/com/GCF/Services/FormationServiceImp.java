@@ -12,43 +12,39 @@ import com.GCF.Repositories.IFormationRepo;
 @Service
 public class FormationServiceImp implements FormationService{
 	@Autowired
-	private  IFormationRepo formationIndividuRepository;
+	private  IFormationRepo formationRepository;
 
     
     @Override
     public List<Formation> getAllFormations() {
-        return formationIndividuRepository.findAll();
+        return formationRepository.findAll();
     }
 
     @Override
     public Formation getFormationById(Long id) {
-      return formationIndividuRepository.findById(id).get();
+      return formationRepository.findById(id).get();
     }
 
     @Override
-    public Formation createFormation(Formation formationIndividu) {
-        return formationIndividuRepository.save(formationIndividu);
+    public Formation createFormation(Formation formation) {
+        return formationRepository.save(formation);
     }
 
     @Override
     public Formation updateFormation( Formation updatedFormation) {
      
-            return formationIndividuRepository.save(updatedFormation);
+            return formationRepository.save(updatedFormation);
         
     }
 
     @Override
     public void deleteFormation(Long id) {
-        formationIndividuRepository.deleteById(id);
+        formationRepository.deleteById(id);
     }
     @Override
-    public List<Formation> getFilteredFormations(String date, String categorie, String ville) {
-    	 if (categorie != null) {
-             return formationIndividuRepository.findByCategorie(categorie);
-         } else if (ville != null) {
-             return formationIndividuRepository.findByVille(ville);
-         } else {
-             return formationIndividuRepository.findAll();
-         }
+    public List<Formation> getFilteredFormations(
+            Double minCout, Double maxCout, Integer minNombreHeures, Integer maxNombreHeures, List<String> categories) {
+        return formationRepository.findByCoutAndNombreHeuresAndCategories(minCout, maxCout, minNombreHeures, maxNombreHeures, categories);
     }
+
 }

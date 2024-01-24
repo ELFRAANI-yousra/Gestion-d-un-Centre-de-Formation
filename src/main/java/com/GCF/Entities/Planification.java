@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -28,32 +29,32 @@ public class Planification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String ville;
     @ManyToOne
     @JoinColumn(name="formation_id")
-    @JsonBackReference
+    
     private Formation formation;
     
     @ManyToOne
     @JoinColumn(name = "formateur_id")
-    @JsonBackReference
+    
     private Formateur formateur;
 
     @ManyToOne
     @JoinColumn(name = "entreprise_id")
-    @JsonBackReference
+    
     private Entreprise entreprise;
     
     @OneToMany(mappedBy="planification", cascade = CascadeType.ALL)
-    @JsonManagedReference  
+    @JsonIgnore   
     private List<Individu> individu=new ArrayList<>();
     
     @OneToMany(mappedBy = "planification", cascade = CascadeType.ALL)
-    @JsonManagedReference 
+    @JsonIgnore  
     private List<Date> dates = new ArrayList<>();
     
     @OneToMany(mappedBy = "planification", cascade = CascadeType.ALL)
-    @JsonManagedReference 
+    @JsonIgnore  
     private List<Evaluation> evaluation;
 }
 

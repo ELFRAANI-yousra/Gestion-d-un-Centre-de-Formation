@@ -1,6 +1,8 @@
 package com.GCF.Entities;
 
 
+import java.time.LocalDate;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
@@ -21,11 +23,11 @@ public class Date {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
-private String date;
+private LocalDate date;
 
 @ManyToOne
 @JoinColumn(name = "planification_id")
-@JsonBackReference
+
 private Planification planification;
 
 }
