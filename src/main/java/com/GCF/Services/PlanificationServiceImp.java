@@ -58,4 +58,9 @@ public class PlanificationServiceImp implements PlanificationService{
 
         return savedPlanification;
     }
+
+	@Override
+	public List<Planification> getFormateurPlanifications(Long id) {
+		return planificationRepository.findByFormateurId(id);
+	}
 }

@@ -20,7 +20,7 @@ public class IndividuController {
 	@Autowired
 	private IndividuServiceImp individuServ;
 	
-	 @PostMapping("/individu")
+	 @PostMapping("/rejoindre")
 	 public Individu addIndividu(@RequestBody Individu individu) {
 		return individuServ.createIndividu(individu);
 	 }

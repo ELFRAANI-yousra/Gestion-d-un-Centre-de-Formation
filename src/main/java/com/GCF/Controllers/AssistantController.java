@@ -11,18 +11,32 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.GCF.Entities.Admin;
 import com.GCF.Entities.Assistant;
+import com.GCF.Entities.Role;
+import com.GCF.Services.AdminServiceImp;
 import com.GCF.Services.AssistantServiceImp;
 
 
+
 @RestController
+
 public class AssistantController {
 	@Autowired
 	private AssistantServiceImp assistantServ;
-	
+	@Autowired
+	private AdminServiceImp adminServ;
+
 	 @PostMapping("/assistant")
 	 public Assistant addAssistant(@RequestBody Assistant assistant) {
-		return assistantServ.createAssistant(assistant);
+		Assistant a= assistantServ.createAssistant(assistant);
+		Admin b=new Admin();
+		b.setId(a.getId());
+		b.setRole(Role.ASSISTANT);
+		b.setNomUtilisateur(a.getNomUtilisateur());
+		b.setMotDePasse(a.getMotDePasse());
+		adminServ.creatAdmin(b);
+		return a;
 	 }
 	 
 

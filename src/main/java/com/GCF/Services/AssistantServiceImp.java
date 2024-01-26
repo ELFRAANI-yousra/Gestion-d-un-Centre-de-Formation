@@ -3,6 +3,7 @@ package com.GCF.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.GCF.Entities.Assistant;
@@ -24,6 +25,8 @@ public class AssistantServiceImp implements AssistantService{
 
 	    @Override
 	    public Assistant createAssistant(Assistant assistant) {
+	    	BCryptPasswordEncoder p=new BCryptPasswordEncoder();
+	    	assistant.setMotDePasse(p.encode(assistant.getMotDePasse()));
 	        return assistantRepository.save(assistant);
 	    }
 

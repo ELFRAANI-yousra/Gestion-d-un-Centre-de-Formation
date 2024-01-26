@@ -12,6 +12,7 @@ public interface PlanificationService {
 	    Planification updatePlanification( Planification updatedPlanification);
 	    void deletePlanification(Long id);
 	    Planification savePlanificationWithIndividu(Planification planification, List<Long> individuList) ;
+	    List<Planification> getFormateurPlanifications(Long id);
 	        	
 }
 

@@ -3,7 +3,6 @@ package com.GCF.Entities;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,7 +26,6 @@ private LocalDate date;
 
 @ManyToOne
 @JoinColumn(name = "planification_id")
-
 private Planification planification;
 
 }
