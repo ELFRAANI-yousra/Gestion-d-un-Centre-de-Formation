@@ -3,30 +3,31 @@ package com.GCF.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.GCF.Entities.Individu;
+import com.GCF.Entities.Admin;
 import com.GCF.Entities.Planification;
 import com.GCF.Services.PlanificationServiceImp;
 @RestController
 public class PlanificationController {
 
-	@Autowired
-	private PlanificationServiceImp planificationServ;
+	 @Autowired
+	 private PlanificationServiceImp planificationServ;
 	
 	 @PostMapping("/planification")
 	 public Planification addPlanification(@RequestBody Planification planification) {
 		return planificationServ.createPlanification(planification);
 	 }
 	 
-	 @PutMapping("/planification/individuals/{idPlanification}")
+	 @PutMapping("/planification/{idPlanification}/individuals")
 	 public Planification createPlanificationAndAssignIndividuals(@PathVariable Long idPlanification, @RequestBody List<Long> individusId) {
 	     Planification p = planificationServ.getPlanificationById(idPlanification);
 	     return planificationServ.savePlanificationWithIndividu(p, individusId);
@@ -46,5 +47,13 @@ public class PlanificationController {
 	 @GetMapping("/planification")
 	 public List<Planification> getPlanifications() {
 	 	return planificationServ.getAllPlanification();
+	 }
+	 
+	 @GetMapping("/mesFormation")
+	 public List<Planification> getFormateurFormation()
+	 {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Admin a = (Admin) authentication.getPrincipal();
+		return planificationServ.getFormateurPlanifications(a.getId());	 
 	 }
 }

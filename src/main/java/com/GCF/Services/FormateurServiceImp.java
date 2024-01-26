@@ -3,6 +3,7 @@ package com.GCF.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.GCF.Entities.Formateur;
@@ -25,6 +26,8 @@ public class FormateurServiceImp implements FormateurService{
 
 	    @Override
 	    public Formateur createFormateur(Formateur formateur) {
+	    	BCryptPasswordEncoder p=new BCryptPasswordEncoder();
+	    	formateur.setMotDePasse(p.encode(formateur.getMotDePasse()));
 	        return formateurRepository.save(formateur);
 	    }
 

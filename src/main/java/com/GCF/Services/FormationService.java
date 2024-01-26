@@ -10,7 +10,5 @@ public interface FormationService {
 	    Formation createFormation(Formation formation);
 	    Formation updateFormation( Formation updatedFormation);
 	    void deleteFormation(Long id);
-	     List<Formation> getFilteredFormations(
-	            Double minCout, Double maxCout, Integer minNombreHeures, Integer maxNombreHeures, List<String> categories);
-	       
+	    List<Formation> getFilteredFormations(Double minCout, Double maxCout, Integer minNombreHeures, Integer maxNombreHeures, List<String> categories); 
 }

@@ -19,12 +19,11 @@ public class FormateurExterneController {
 	@Autowired
 	private FormateurExterneServiceImp formateurExterneServ;
 	
-	 @PostMapping("/formateurExterne")
+	 @PostMapping("/postuler")
 	 public FormateurExterne addFormateurExterne(@RequestBody FormateurExterne formateurExterne) {
 		return formateurExterneServ.createFormateurExterne(formateurExterne);
 	 }
 	 
-
 	 @PutMapping("/formateurExterne")
 	 public FormateurExterne updateFormateurExterne( @RequestBody FormateurExterne formateurExterne) {
 		 return formateurExterneServ.updateFormateurExterne(formateurExterne);

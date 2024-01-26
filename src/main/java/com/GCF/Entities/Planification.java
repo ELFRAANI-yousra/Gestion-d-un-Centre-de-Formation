@@ -3,10 +3,7 @@ package com.GCF.Entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -56,5 +53,7 @@ public class Planification {
     @OneToMany(mappedBy = "planification", cascade = CascadeType.ALL)
     @JsonIgnore  
     private List<Evaluation> evaluation;
+    
+    
 }
 

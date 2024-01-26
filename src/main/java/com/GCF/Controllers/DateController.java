@@ -25,7 +25,6 @@ public class DateController {
 		return dateServ.createDate(date);
 	 }
 	 
-
 	 @PutMapping("/date")
 	 public Date updateDate( @RequestBody Date date) {
 		 return dateServ.updateDate(date);

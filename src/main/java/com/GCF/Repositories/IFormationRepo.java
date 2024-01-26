@@ -25,6 +25,7 @@ public interface IFormationRepo extends JpaRepository<Formation, Long>{
             @Param("maxNombreHeures") Integer maxNombreHeures,
             @Param("categories") List<String> categories
     );
+	
 
 	/*
 	 * List<Formation> findByCategorieAndNombreHeures(String categorie, int

@@ -1,8 +1,8 @@
 package com.GCF.Controllers;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +23,6 @@ public class EntrepriseController {
 		return entrepriseServ.createEntreprise(entreprise);
 	 }
 	 
-
 	 @PutMapping("/entreprise")
 	 public Entreprise updateEntreprise( @RequestBody Entreprise entreprise) {
 		 return entrepriseServ.updateEntreprise(entreprise);
@@ -34,8 +33,14 @@ public class EntrepriseController {
 		 entrepriseServ.deleteEntreprise(id);
 		 
 	 }
+	 
 	 @GetMapping("/entreprise")
-	 public List<Entreprise> getEntreprises() {
-	 	return entrepriseServ.getAllEntreprises();
+	 public ResponseEntity<Object> getEntreprises()
+	 {
+	    return ResponseEntity.ok(entrepriseServ.getAllEntreprises());
 	 }
+	 
+	 
+
+
 }
