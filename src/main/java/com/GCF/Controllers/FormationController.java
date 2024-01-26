@@ -3,6 +3,7 @@ package com.GCF.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.GCF.Entities.Formation;
 import com.GCF.Services.FormationServiceImp;
-
+@CrossOrigin(origins="*")
 @RestController
 public class FormationController {
 	
@@ -47,7 +48,15 @@ public class FormationController {
 	            @RequestParam(required = false) Double maxCout,
 	            @RequestParam(required = false) Integer minNombreHeures,
 	            @RequestParam(required = false) Integer maxNombreHeures,
-	            @RequestParam(required = false) List<String> categories  ) {
+	            @RequestParam(required = false) List<String> categories  ) 
+	 {
 	   return formationServ.getFilteredFormations(minCout, maxCout, minNombreHeures, maxNombreHeures, categories); 
-	}
+	 }
+	 
+	 
+	 @GetMapping("/formation/categories")
+	 public List<String> getFormationsCategories() {
+		 	return formationServ.getAllCategories();
+		 }
+	 
 }

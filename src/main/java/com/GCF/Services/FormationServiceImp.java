@@ -2,6 +2,8 @@ package com.GCF.Services;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +47,14 @@ public class FormationServiceImp implements FormationService{
     public List<Formation> getFilteredFormations(
             Double minCout, Double maxCout, Integer minNombreHeures, Integer maxNombreHeures, List<String> categories) {
         return formationRepository.findByCoutAndNombreHeuresAndCategories(minCout, maxCout, minNombreHeures, maxNombreHeures, categories);
+    }
+    public List<String> getAllCategories() {
+        List<Formation> allFormations = formationRepository.findAll();
+        Set<String> uniqueCategories = allFormations.stream()
+                .map(Formation::getCategorie)
+                .collect(Collectors.toSet());
+
+        return List.copyOf(uniqueCategories);
     }
 
 }

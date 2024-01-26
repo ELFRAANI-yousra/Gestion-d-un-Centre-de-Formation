@@ -1,5 +1,6 @@
 package com.GCF.Entities;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -18,9 +19,12 @@ public class FormateurExterne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nom;
     private String prenom;
+    private LocalDate dateNaissance;
+    private String ville;
+    private String email;
+    private String telephone;
     private String MotsCles;
    
     
