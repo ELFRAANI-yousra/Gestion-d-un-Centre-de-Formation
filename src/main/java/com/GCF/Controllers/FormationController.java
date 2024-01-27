@@ -62,7 +62,7 @@ public class FormationController {
 	 }
 	 
 	 
-	 @GetMapping("/formation/categories")
+	 @GetMapping("/accueil/categories")
 	 public List<String> getFormationsCategories() {
 		 	return formationServ.getAllCategories();
 		 }
