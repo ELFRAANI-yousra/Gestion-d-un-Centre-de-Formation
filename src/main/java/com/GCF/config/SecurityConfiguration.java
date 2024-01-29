@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
+import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,7 +24,7 @@ public class SecurityConfiguration
 	
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(request -> request.requestMatchers("/categories/**","/login/**","/postuler/**","/rejoindre/**", "/accueil/**").permitAll()
+                .authorizeHttpRequests(request -> request.requestMatchers("/categories/**","/login/**","/evaluer/**","/planification/**","/postuler/**","/rejoindre/**","/evaluation/**", "/accueil/**").permitAll()
                         .requestMatchers("/assistant/**").hasAnyAuthority("ADMIN")
                         .requestMatchers("/entreprise/**").hasAnyAuthority("ASSISTANT","ADMIN")
                         .requestMatchers("/individu/**").hasAnyAuthority("ASSISTANT", "ADMIN")

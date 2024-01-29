@@ -45,5 +45,12 @@ public class IndividuServiceImp implements IndividuService{
 	    public List<Individu> getIndividuListByIds(List<Long> individuIds) {
 	        return individuRepository.findAllById(individuIds);
 	    }
+
+		@Override
+		public Individu getIndividuByCodeAndEvaluer(String code) {
+			boolean evaluer=false;
+			return individuRepository.findByCodeAndEvaluer(code,evaluer);
+		}
+		 
 	}
 

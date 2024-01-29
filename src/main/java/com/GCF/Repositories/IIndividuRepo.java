@@ -8,4 +8,5 @@ import com.GCF.Entities.Individu;
 
 public interface IIndividuRepo extends JpaRepository<Individu, Long>{
 	List<Individu> findByFormationId(Long formationId);
+	Individu findByCodeAndEvaluer (String code, Boolean evaluer);
 }

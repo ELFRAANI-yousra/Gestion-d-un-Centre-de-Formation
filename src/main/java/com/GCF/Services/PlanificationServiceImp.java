@@ -49,10 +49,11 @@ public class PlanificationServiceImp implements PlanificationService{
 
         for (Long individuId : individuIdList) {
             Individu existingIndividu = individuServiceImp.getIndividuById(individuId);
-
+            String code= existingIndividu.getId()+"@1234"+savedPlanification.getId();
             // Assuming you have a method like mergeIndividu in your service
             existingIndividu.setPlanification(savedPlanification);
             existingIndividu.setFormation(null);
+            existingIndividu.setCode(code);
             individuServiceImp.updateIndividu(existingIndividu);
         }
 

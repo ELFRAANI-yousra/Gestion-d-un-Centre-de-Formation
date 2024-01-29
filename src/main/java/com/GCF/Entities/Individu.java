@@ -32,7 +32,8 @@ public class Individu {
     private String ville;
     private String email;
     private String telephone;
-
+    private String code;
+    private boolean evaluer;
     @ManyToOne
     @JoinColumn(name = "planification_id")
     

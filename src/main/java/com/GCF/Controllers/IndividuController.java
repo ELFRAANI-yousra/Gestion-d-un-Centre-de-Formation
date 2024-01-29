@@ -44,5 +44,15 @@ public class IndividuController {
 	 public List<Individu> getformationIndividus(@PathVariable Long id) {
 	 	return individuServ.getIndividualsByFormationId(id);
 	 }
-
+	 @GetMapping("/evaluer/{code}")
+	 public Individu getformationIndividus(@PathVariable String code) {
+	 	return individuServ.getIndividuByCodeAndEvaluer(code);
+	 }
+	
+	 @PostMapping("/rejoindre/evaluer")
+	 public Individu adIndividu(@RequestBody Long individuId) {
+		 Individu i = individuServ.getIndividuById(individuId);
+		 i.setEvaluer(true);
+		return individuServ.updateIndividu(i);
+	 }
 }
