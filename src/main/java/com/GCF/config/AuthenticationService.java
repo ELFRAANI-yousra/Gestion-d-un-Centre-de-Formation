@@ -22,7 +22,7 @@ public class AuthenticationService
 		var user =repo.findByNomUtilisateur(request.getNomUtilisateur())
 				.orElseThrow();
 		var jwtToken=jwtService.generateToken(user);
-		return AuthenticationResponse.builder().token(jwtToken).build();
+		return AuthenticationResponse.builder().token(jwtToken).Role(user.getRole()).build();
 
 	}
 	

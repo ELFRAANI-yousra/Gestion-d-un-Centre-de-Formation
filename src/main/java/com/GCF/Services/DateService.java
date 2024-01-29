@@ -10,4 +10,5 @@ public interface DateService {
 	    Date createDate(Date date);
 	    Date updateDate(Date date);
 	    void deleteDate(Long id);
+	 List<Date> getPlanificationDates(Long planificationid);
 }

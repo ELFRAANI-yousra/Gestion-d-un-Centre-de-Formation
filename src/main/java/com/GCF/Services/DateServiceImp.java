@@ -36,5 +36,10 @@ public class DateServiceImp implements DateService{
 	    public void deleteDate(Long id) {
 	        dateRepository.deleteById(id);
 	    }
+
+		@Override
+		public List<Date> getPlanificationDates(Long planificationid) {
+			return dateRepository.findByPlanificationId(planificationid);
+		}
 	}
 

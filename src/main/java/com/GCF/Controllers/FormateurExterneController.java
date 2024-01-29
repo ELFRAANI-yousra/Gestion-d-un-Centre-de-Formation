@@ -30,7 +30,7 @@ public class FormateurExterneController {
 		 return formateurExterneServ.updateFormateurExterne(formateurExterne);
 	 }
 	 
-	 @DeleteMapping("/formateurExterne/{id}")
+ @DeleteMapping("/formateurExterne/{id}")
 	 public void deleteclient(@PathVariable Long id) {
 		 formateurExterneServ.deleteFormateurExterne(id);
 		 

@@ -31,6 +31,8 @@ public class SecurityConfiguration
                         .requestMatchers("/formateur/**").hasAnyAuthority("ASSISTANT", "ADMIN")
                         .requestMatchers("/formateurExterne/**").hasAnyAuthority("ASSISTANT", "ADMIN")
                         .requestMatchers("/formation/**").hasAnyAuthority("ASSISTANT", "ADMIN")
+                        .requestMatchers("/date/**").hasAnyAuthority("ASSISTANT", "ADMIN","FORMATEUR")
+                        .requestMatchers("/planification/**").hasAnyAuthority("ASSISTANT", "ADMIN","FORMATEUR")
                         .requestMatchers("/mesFormation/**").hasAnyAuthority("FORMATEUR")
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

@@ -29,17 +29,14 @@ public class Planification {
     private String ville;
     @ManyToOne
     @JoinColumn(name="formation_id")
-    
     private Formation formation;
     
     @ManyToOne
-    @JoinColumn(name = "formateur_id")
-    
+    @JoinColumn(name = "formateur_id")   
     private Formateur formateur;
 
     @ManyToOne
     @JoinColumn(name = "entreprise_id")
-    
     private Entreprise entreprise;
     
     @OneToMany(mappedBy="planification", cascade = CascadeType.ALL)

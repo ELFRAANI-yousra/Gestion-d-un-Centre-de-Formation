@@ -44,6 +44,11 @@ public class FormationController {
 		 formationServ.deleteFormation(id);
 		 
 	 }
+	 @GetMapping("/formation")
+	 public List<Formation> getFormation() {
+	 	return formationServ.getAllFormations();
+	 }
+	 
 	 @GetMapping("/accueil")
 	 public List<Formation> getFormations() {
 	 	return formationServ.getAllFormations();
