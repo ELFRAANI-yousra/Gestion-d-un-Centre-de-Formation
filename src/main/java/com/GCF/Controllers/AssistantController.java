@@ -19,7 +19,6 @@ import com.GCF.Services.AdminServiceImp;
 import com.GCF.Services.AssistantServiceImp;
 
 
-@CrossOrigin(origins="*")
 @RestController
 @CrossOrigin(origins="*")
 public class AssistantController {

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.GCF.Entities.Entreprise;
 import com.GCF.Services.EntrepriseServiceImp;
-@CrossOrigin(origins="*")
+
 @RestController
 @CrossOrigin(origins="*")
 public class EntrepriseController {

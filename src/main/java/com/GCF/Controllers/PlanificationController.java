@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.GCF.Entities.Admin;
 import com.GCF.Entities.Planification;
 import com.GCF.Services.PlanificationServiceImp;
-@CrossOrigin(origins="*")
+
 @RestController
 @CrossOrigin(origins="*")
 public class PlanificationController {
