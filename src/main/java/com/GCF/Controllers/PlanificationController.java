@@ -2,6 +2,7 @@ package com.GCF.Controllers;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.GCF.Entities.Admin;
 import com.GCF.Entities.Planification;
 import com.GCF.Services.PlanificationServiceImp;
+@CrossOrigin(origins="*")
 @RestController
 @CrossOrigin(origins="*")
 public class PlanificationController {
@@ -32,6 +34,7 @@ public class PlanificationController {
 	 @PutMapping("/planification/{idPlanification}/individuals")
 	 public Planification createPlanificationAndAssignIndividuals(@PathVariable Long idPlanification, @RequestBody List<Long> individusId) {
 	     Planification p = planificationServ.getPlanificationById(idPlanification);
+	     
 	     return planificationServ.savePlanificationWithIndividu(p, individusId);
 	 }
 

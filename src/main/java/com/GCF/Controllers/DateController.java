@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.GCF.Entities.Date;
 import com.GCF.Services.DateServiceImp;
 
-
+@CrossOrigin(origins="*")
 @RestController
 @CrossOrigin(origins="*")
 public class DateController {

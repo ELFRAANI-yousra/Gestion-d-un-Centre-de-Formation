@@ -19,7 +19,7 @@ import com.GCF.Entities.Formateur;
 import com.GCF.Entities.Role;
 import com.GCF.Services.AdminServiceImp;
 import com.GCF.Services.FormateurServiceImp;
-
+@CrossOrigin(origins="*")
 @RestController
 @CrossOrigin(origins="*")
 public class FormateurController {

@@ -38,7 +38,6 @@ public class FormationController {
 	 public Formation updateFormation( @RequestBody Formation formation) {
 		 return formationServ.updateFormation(formation);
 	 }
-	 
 	 @DeleteMapping("/formation/{id}")
 	 public void deleteclient(@PathVariable Long id) {
 		 formationServ.deleteFormation(id);

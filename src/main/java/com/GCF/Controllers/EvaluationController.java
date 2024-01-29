@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.GCF.Entities.Evaluation;
 import com.GCF.Services.EvaluationServiceImp;
-
+@CrossOrigin(origins="*")
 @RestController
 @CrossOrigin(origins="*")
 public class EvaluationController {
