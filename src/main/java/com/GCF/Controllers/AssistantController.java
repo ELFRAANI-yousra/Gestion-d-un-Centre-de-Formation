@@ -29,6 +29,7 @@ public class AssistantController {
 
 	 @PostMapping("/assistant")
 	 public Assistant addAssistant(@RequestBody Assistant assistant) {
+		assistant.setRole(Role.ASSISTANT);
 		Assistant a= assistantServ.createAssistant(assistant);
 		Admin b=new Admin();
 		b.setId(a.getId());
@@ -42,14 +43,22 @@ public class AssistantController {
 
 	 @PutMapping("/assistant")
 	 public Assistant updateAssistant( @RequestBody Assistant assistant) {
-		 return assistantServ.updateAssistant(assistant);
+		   assistant.setRole(Role.ASSISTANT);
+			Assistant a= assistantServ.updateAssistant(assistant);
+			Admin b=new Admin();
+			b.setId(a.getId());
+			b.setRole(Role.ASSISTANT);
+			b.setNomUtilisateur(a.getNomUtilisateur());
+			b.setMotDePasse(a.getMotDePasse());
+			adminServ.creatAdmin(b);
+			return a;
 	 }
 	 
 	 @DeleteMapping("/assistant/{id}")
 	 public void deleteclient(@PathVariable Long id) {
 		 assistantServ.deleteAssistant(id);
-		 
 	 }
+	 
 	 @GetMapping("/assistant")
 	 public List<Assistant> getAssistants() {
 	 	return assistantServ.getAllAssistants();

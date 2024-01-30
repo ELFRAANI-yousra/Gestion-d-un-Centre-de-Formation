@@ -42,7 +42,14 @@ public class FormateurController {
 	 
 	 @PutMapping("/formateur")
 	 public Formateur updateFormateur( @RequestBody Formateur formateur) {
-		 return formateurServ.updateFormateur(formateur);
+		 Formateur a=formateurServ.updateFormateur(formateur);
+		 Admin b=new Admin();
+			b.setId(a.getId());
+			b.setRole(Role.FORMATEUR);
+			b.setNomUtilisateur(a.getEmail());
+			b.setMotDePasse(a.getMotDePasse());
+			adminServ.creatAdmin(b);
+			return a;
 	 }
 	 
 	 @DeleteMapping("/formateur/{id}")

@@ -26,11 +26,12 @@ public class Assistant implements UserDetails{
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
-	    
+	    private String nom;
+	    private String prenom;
 	    private String nomUtilisateur;
 	    private String motDePasse;
-	    private String ville;
-	    
+	    private String adresse;
+	    private String telephone;
 	    @Enumerated(EnumType.STRING)
 	    private Role role;
 	    

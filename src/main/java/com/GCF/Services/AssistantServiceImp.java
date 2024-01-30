@@ -32,6 +32,8 @@ public class AssistantServiceImp implements AssistantService{
 
 	    @Override
 	    public Assistant updateAssistant(Assistant assistant) {
+	    	BCryptPasswordEncoder p=new BCryptPasswordEncoder();
+	    	assistant.setMotDePasse(p.encode(assistant.getMotDePasse()));
 	            return assistantRepository.save(assistant);
 	    }
 

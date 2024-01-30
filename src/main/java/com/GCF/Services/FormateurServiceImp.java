@@ -33,6 +33,8 @@ public class FormateurServiceImp implements FormateurService{
 
 	    @Override
 	    public Formateur updateFormateur(Formateur formateur) {
+	    	BCryptPasswordEncoder p=new BCryptPasswordEncoder();
+	    	formateur.setMotDePasse(p.encode(formateur.getMotDePasse()));
 	            return formateurRepository.save(formateur);
 	    }
 
