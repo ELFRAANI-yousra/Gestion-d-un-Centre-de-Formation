@@ -25,6 +25,16 @@ public class IndividuController {
 		return individuServ.createIndividu(individu);
 	 }
 	 
+	 @PostMapping("/individu")
+	 public Individu addIndividuAdmin(@RequestBody Individu individu) {
+		return individuServ.createIndividu(individu);
+	 }
+	 
+	 @PostMapping("/individu/planification")
+	 public Individu addIndividuPlanification(@RequestBody Individu individu) {
+		return individuServ.createIndividuPlanification(individu);
+	 }
+	 
 
 	 @PutMapping("/individu")
 	 public Individu updateIndividu( @RequestBody Individu individu) {
@@ -44,6 +54,11 @@ public class IndividuController {
 	 public List<Individu> getformationIndividus(@PathVariable Long id) {
 	 	return individuServ.getIndividualsByFormationId(id);
 	 }
+	 @GetMapping("/individu/planification/{id}")
+	 public List<Individu> getplanificationIndividus(@PathVariable Long id) {
+	 	return individuServ.getIndividualsByPlanificatinoId(id);
+	 }
+	 
 	 @GetMapping("/evaluer/{code}")
 	 public Individu getformationIndividus(@PathVariable String code) {
 	 	return individuServ.getIndividuByCodeAndEvaluer(code);

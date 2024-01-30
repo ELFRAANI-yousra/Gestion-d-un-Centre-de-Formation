@@ -49,7 +49,7 @@ public class Planification {
     
     @OneToMany(mappedBy = "planification", cascade = CascadeType.ALL)
     @JsonIgnore  
-    private List<Evaluation> evaluation;
+    private List<Evaluation> evaluation = new ArrayList<>();;
     
     
 }

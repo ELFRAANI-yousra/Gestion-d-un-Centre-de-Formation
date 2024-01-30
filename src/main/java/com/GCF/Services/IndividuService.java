@@ -13,6 +13,7 @@ public interface IndividuService {
 	    List<Individu> getIndividualsByFormationId(Long formationId);
 	    List<Individu> getIndividuListByIds(List<Long> individuIds);
 	    Individu getIndividuByCodeAndEvaluer(String code);
+		Individu createIndividuPlanification(Individu individu);
 	  
 	    
 }

@@ -27,6 +27,14 @@ public class IndividuServiceImp implements IndividuService{
 	    public Individu createIndividu(Individu individu) {
 	        return individuRepository.save(individu);
 	    }
+	    
+	    @Override
+	    public Individu createIndividuPlanification(Individu individu) {
+	    	Individu i=individuRepository.save(individu);
+	    	i.setCode(i.getId()+"@1234"+i.getPlanification().getId());
+	        return individuRepository.save(i);
+	    }
+	    
 
 	    @Override
 	    public Individu updateIndividu(Individu individu) {
@@ -41,6 +49,11 @@ public class IndividuServiceImp implements IndividuService{
 	    public List<Individu> getIndividualsByFormationId(Long formationId) {
 	        return individuRepository.findByFormationId(formationId);
 	    }
+	    
+	    public List<Individu> getIndividualsByPlanificatinoId(Long formationId) {
+	        return individuRepository.findByPlanificationId(formationId);
+	    }
+	    
 	    @Override
 	    public List<Individu> getIndividuListByIds(List<Long> individuIds) {
 	        return individuRepository.findAllById(individuIds);

@@ -32,10 +32,11 @@ public class PlanificationController {
 	 }
 	 
 	 @PutMapping("/planification/{idPlanification}/individuals")
-	 public Planification createPlanificationAndAssignIndividuals(@PathVariable Long idPlanification, @RequestBody List<Long> individusId) {
-	     Planification p = planificationServ.getPlanificationById(idPlanification);
+	 public Planification  createPlanificationAndAssignIndividuals(@PathVariable Long idPlanification, @RequestBody List<Long> individusId) {
+	    Planification p = planificationServ.getPlanificationById(idPlanification);
 	     
-	     return planificationServ.savePlanificationWithIndividu(p, individusId);
+	    return planificationServ.savePlanificationWithIndividu(p, individusId);
+		 
 	 }
 
 	 

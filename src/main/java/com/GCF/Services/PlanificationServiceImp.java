@@ -44,20 +44,20 @@ public class PlanificationServiceImp implements PlanificationService{
     }
     @Override
     public Planification savePlanificationWithIndividu(Planification planification, List<Long> individuIdList) {
-        planification.setIndividu(individuServiceImp.getIndividuListByIds(individuIdList));
-        Planification savedPlanification = planificationRepository.save(planification);
+        //planification.setIndividu(individuServiceImp.getIndividuListByIds(individuIdList));
+        //Planification savedPlanification = planificationRepository.save(planification);
 
         for (Long individuId : individuIdList) {
             Individu existingIndividu = individuServiceImp.getIndividuById(individuId);
-            String code= existingIndividu.getId()+"@1234"+savedPlanification.getId();
+            String code= existingIndividu.getId()+"@1234"+planification.getId();
             // Assuming you have a method like mergeIndividu in your service
-            existingIndividu.setPlanification(savedPlanification);
+            existingIndividu.setPlanification(planification);
             existingIndividu.setFormation(null);
             existingIndividu.setCode(code);
             individuServiceImp.updateIndividu(existingIndividu);
         }
 
-        return savedPlanification;
+        return planificationRepository.save(planification);
     }
 
 	@Override
