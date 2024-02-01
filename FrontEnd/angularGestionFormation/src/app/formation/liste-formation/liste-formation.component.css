@@ -1,0 +1,13 @@
+:host {
+    display: block;
+    width: 80%;
+    float: left;
+    padding: 10px; 
+  }
+.card {
+  background-color: rgb(245, 245, 245);
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+  

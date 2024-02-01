@@ -1,0 +1,7 @@
+::ng-deep .cdk-overlay-container {
+    z-index: 9999;
+}
+
+input[type="checkbox"] {
+    margin-top: 15px; /* Adjust the value as needed */
+  }

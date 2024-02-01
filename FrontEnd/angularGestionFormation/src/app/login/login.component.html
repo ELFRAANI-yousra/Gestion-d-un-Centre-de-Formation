@@ -1,0 +1,27 @@
+<!-- login.component.html -->
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Login</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="formLogin" (submit)="login()">
+        
+          <!-- Name Fields -->
+          <div class="mb-3">
+            <label for="nomUtilisateur" class="form-label">nom d'utilisateur</label>
+            <input formControlName="nomUtilisateur" type="text" class="form-control" id="nomUtilisateur" name="nomUtilisateur" required>
+          </div>
+  
+          <!-- Surname Fields -->
+          <div class="mb-3">
+            <label for="motDePasse" class="form-label">mot de passe</label>
+            <input formControlName="motDePasse" type="password" class="form-control" id="motDePasse" name="motDePasse"  required>
+          </div> 
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary">Se connecter</button>
+        </form>
+      </div>
+    </div>
+  </div>
+    

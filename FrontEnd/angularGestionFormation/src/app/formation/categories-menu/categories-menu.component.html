@@ -1,0 +1,52 @@
+<div class="card border-primary">
+<div class="container">
+  <div class="row">
+    <div class="card-body">
+      <label for="customRange1" class="form-label" style="font-weight: bold;font-size: 20px;">Categorie</label>
+      
+      <div *ngFor="let card of categories" class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          [id]="card"
+          (change)="onCheckboxChange(card)"
+          [checked]="selectedCategories.includes(card)"
+        />
+        <label class="form-check-label" [for]="card">{{ card }}</label>
+      </div>  
+    </div>
+  </div>
+  </div>
+<br>
+  <div class="container">
+    <div class="row">
+          <div class="card-body">
+            <label for="customRange1" class="form-label"style="font-weight: bold;font-size: 20px;">Feltrer par Cout </label>
+            <input type="range" class="form-range" id="customRange1" min="0" max="10000" [(ngModel)]="coutRangeValue" (input)="onCoutRangeChange($event)">
+            <p>moins de {{ coutRangeValue }} MAD</p>
+          </div>
+        </div>
+  </div>
+<br>
+  <div class="container">
+    <div class="row">
+          <div class="card-body">
+            <label for="customRange2" class="form-label"style="font-weight: bold;font-size: 20px;">Feltrer par Nombre d'heure</label>
+            <input type="range" class="form-range" id="customRange2" min="0" max="50" [(ngModel)]="nombreRangeValue" (input)="onNombreRangeChange($event)">
+            <p>moins de {{ nombreRangeValue }} Heurs</p>
+          </div>
+    </div>
+  </div>
+</div>
+
+  
+ 
+  
+  
+       
+     
+         
+              
+          
+             

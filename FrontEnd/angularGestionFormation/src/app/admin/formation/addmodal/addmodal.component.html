@@ -1,0 +1,15 @@
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="addEvent($event)">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<div *ngIf="selectedDates.length > 0">
+  <h4>Selected Dates:</h4>
+  <ul>
+    <li *ngFor="let date of selectedDates">
+      {{ date | date }}
+      <button mat-button color="warn" (click)="removeDate(date)">Remove</button>
+    </li>
+  </ul>
+</div>
