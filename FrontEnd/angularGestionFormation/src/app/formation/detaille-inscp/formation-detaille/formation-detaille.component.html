@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <div class="row"> 
+    <div class="col-md-6">
+     <br><br>
+      <div *ngIf="selectedFormation" class="card">
+        <div class="card-header">
+          <h2 class="card-title">{{ selectedFormation.titre }}</h2>
+          <h3 class="card-subtitle mb-2 text-muted">Catégorie: {{ selectedFormation.categorie }}</h3>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><strong>Prix:</strong> {{ selectedFormation.cout }} dh</p>
+          <p class="card-text"><strong>Durée:</strong> {{ selectedFormation.nombreHeures }} hours</p>
+          <p class="card-text"><strong>Objectifs:</strong> {{ selectedFormation.objectifs }}</p>
+          <p class="card-text"><strong>Programme Detaille:</strong> {{ selectedFormation.programmeDetaille }}</p>
+        </div>
+      </div>
+  </div>
+  <div class="col-md-6">
+    <app-individu-inscreption></app-individu-inscreption>
+  </div>
+</div>

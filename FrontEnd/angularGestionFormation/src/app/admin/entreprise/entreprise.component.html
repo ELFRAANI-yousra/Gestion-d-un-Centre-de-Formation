@@ -1,0 +1,123 @@
+<div>
+  <app-admin-menu></app-admin-menu>
+</div><br><br>
+<div class="container mt-5">
+  <button  class="btn btn-primary " mat-mini-fab color="primary" (click)="open(content)">
+    <mat-icon>add</mat-icon>
+  </button>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Adresse</th>
+          <th>Telephone</th>
+          <th>URL</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entreprise of entreprises">
+          <td>{{ entreprise.id }}</td>
+          <td>{{ entreprise.nom }}</td>
+          <td>{{ entreprise.email }}</td>
+          <td>{{ entreprise.adresse }}</td>
+          <td>{{ entreprise.telephone }}</td>
+          <td>{{ entreprise.url }}</td>
+  
+          <td>
+            <button class="btn btn-danger" mat-mini-fab  color="warn" (click)="deleteEntreprise(entreprise.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            
+            <button class="btn btn-primary" mat-mini-fab  color="primary" (click)="selectEntrepriseForEdit(entreprise); open(editContent)">
+              <mat-icon>edit</mat-icon> 
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #content let-modal>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="addEntrepriseModalLabel">ajouter une entreprise</h2>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form  #addEntrepriseForm="ngForm" (ngSubmit)="addEntreprise(addEntrepriseForm)" >
+
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="newEntreprise.nom" required>
+          </div>
+          <div class="form-group">
+            <label for="titre">Adresse</label>
+            <input type="text" class="form-control" id="adresse" name="adresse" [(ngModel)]="newEntreprise.adresse" required>
+          </div>
+          <div class="form-group">
+            <label for="telephone">Telephone</label>
+            <input type="tel" class="form-control" id="telephone" name="telephone" [(ngModel)]="newEntreprise.telephone" required>
+          </div>
+          <div class="form-group">
+            <label for="cout">Email</label>
+            <input type="text" class="form-control" id="email" name="email" [(ngModel)]="newEntreprise.email" required>
+          </div>
+          <div class="form-group">
+            <label for="objectifs">URL</label>
+            <input type="text" class="form-control" id="url" name="url" [(ngModel)]="newEntreprise.url" required>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary" (click)="modal.close('Save click')">Ajouter</button>
+        </form>
+      </div>
+    </div>
+</ng-template>
+
+
+
+<ng-template #editContent let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title" id="editEntrepriseModalLabel">Modifier Entreprise</h2>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+    
+            <form #editEntrepriseForm="ngForm" (ngSubmit)="editEntreprise(editEntrepriseForm)">
+           
+                <input type="hidden" id="editFormationId" name="id" [(ngModel)]="selectedentreprise.id">
+       
+                <div class="form-group">
+                    <label for="editNon">Nom</label>
+                    <input type="text" class="form-control" id="editNom" name="nom" [(ngModel)]="selectedentreprise.nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="editAdresse">adresse</label>
+                    <input type="text" class="form-control" id="adresse" name="adresse" [(ngModel)]="selectedentreprise.adresse" required>
+                </div>
+                <div class="form-group">
+                    <label for="edittelephone">telephone</label>
+                    <input type="tel" class="form-control" id="telephone" name="telephone" [(ngModel)]="selectedentreprise.telephone" required>
+                </div>
+                <div class="form-group">
+                    <label for="editemail">email</label>
+                    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="selectedentreprise.email" required>
+                </div>
+                <div class="form-group">
+                    <label for="editurl">url</label>
+                    <input type="text" class="form-control" id="url" name="url" [(ngModel)]="selectedentreprise.url" required>
+                </div>
+               
+                <br>
+                <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            </form>
+        </div>
+    </div>
+  </ng-template>
+  
+  

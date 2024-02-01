@@ -1,0 +1,41 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"> <img src="../assets/icon.png" class="mb-2" alt="logo" height="20" > Cours Académie</a>
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarColor02"
+      aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse mr-20" id="navbarColor02">
+    </div>
+  </div>
+  <button mat-button [matMenuTriggerFor]="menu"><mat-icon>account_circle</mat-icon></button>
+  <mat-menu #menu="matMenu">
+   <button mat-menu-item (click)="logout()">Logout  <mat-icon>logout</mat-icon>  </button>    
+ </mat-menu>
+</nav>
+<br><br>
+<div class="container mt-5">
+  <div class="card-deck">
+    <div class="row">
+      <div class="col-md-6" *ngFor="let formation of formations"> 
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">{{ formation.formation.titre }}</h2>
+            <p class="card-text"><strong>Nombre d'heures : </strong>{{ formation.formation.nombreHeures }}</p>
+            <p class="card-text"><strong>Objectifs :</strong> {{ formation.formation.objectifs }}</p>
+            <p class="card-text"><strong>Programme détaillé :</strong>  {{ formation.formation.programmeDetaille }}</p>
+            <p class="card-text"><strong>Catégorie :</strong> {{ formation.formation.categorie }}</p>
+            <p class="card-text"><strong>Ville :</strong> {{ formation.ville }}</p>
+            <p class="card-text"><strong>Dates :</strong></p>
+            <div *ngFor="let date of formation.dates">
+              <p class="card-text">{{ date.date }}</p>
+            </div>
+            <p class="card-text"><small class="text-muted">{{ formation.date }}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  

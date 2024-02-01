@@ -1,0 +1,51 @@
+<div>
+  <app-admin-menu></app-admin-menu>
+</div><br><br>
+<div class="container mt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID </th>
+          <th>Nom Individu</th>
+          <th>Id Individu</th>
+          <th>Nom Formateur </th>
+          <th>Id Formateur </th>
+          <th>titre Formation</th>
+          <th>Id planification</th>
+          <th>Note Pedagogique</th>
+          <th>Note Rythme</th>
+          <th>Note Support Cours TP </th>
+          <th>Note Maitrise Sujet </th>
+          <th>Supprimer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let evaluation of evaluations">
+          <td>{{ evaluation.id }}</td>
+          <td>{{ evaluation.individu.nom }} {{ evaluation.individu.prenom }}</td>
+          <td>{{ evaluation.individu.id }}</td>
+          <td>{{ evaluation.planification.formateur.nom }} {{ evaluation.planification.formateur.prenom }}</td>
+          <td>{{ evaluation.planification.formateur.id }}</td>
+          <td>{{ evaluation.planification.formation.titre }}</td>
+          <td>{{ evaluation.planification.id}}</td>
+          <td>{{ evaluation.notePedagogique }}</td>
+          <td>{{ evaluation.noteRythme }}</td>
+          <td>{{ evaluation.noteSupportCoursTP }}</td>
+          <td>{{ evaluation.noteMaitriseSujet }}</td>
+  
+          <td>
+            
+
+            <button class="btn btn-danger" mat-mini-fab  color="warn" (click)="deleteEvaluation(evaluation.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+
+
+  

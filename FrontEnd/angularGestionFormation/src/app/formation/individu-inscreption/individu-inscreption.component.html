@@ -1,0 +1,56 @@
+<div>
+  <app-menu></app-menu>
+</div>
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Formulaire d'inscription</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="formIndividu" (submit)="addIndividu(IndividuContent)">
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input formControlName="nom" type="text" class="form-control" id="nom" name="nom" required>
+          </div>
+          <div class="mb-3">
+            <label for="prenom" class="form-label">Prenom</label>
+            <input formControlName="prenom" type="text" class="form-control" id="prenom" name="prenom"  required>
+          </div>
+          <div class="mb-3">
+            <label for="dateNaissance" class="form-label">Date de Naissance</label>
+            <input formControlName="dateNaissance" type="date" class="form-control" id="dateNaissance" name="dateNaissance" required>
+          </div>
+          <div class="mb-3">
+            <label for="ville" class="form-label">Ville</label>
+            <input formControlName="ville" type="text" class="form-control" id="ville" name="ville" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input formControlName= "email" type="email" class="form-control" id="email" name="email"  required>
+          </div>
+          <div class="mb-3">
+            <label for="telephone" class="form-label">Telephone</label>
+            <input formControlName="telephone" type="tel" class="form-control" id="telephone" name="telephone"  required>
+          </div>
+          <button type="submit" class="btn btn-primary" >Inscrire</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #IndividuContent let-modal>
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="icon-box">
+            <i class="material-icons">&#xE876;</i>
+          </div>				
+          <h4 class="modal-title">Votre inscreption a été soumise avec succès!</h4>	
+        </div>
+        <br><br>
+          <button class="btn btn-success btn-block" (click)="modal.close()">OK</button>
+      </div>
+    </div>
+  </ng-template>
+  
+  

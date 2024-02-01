@@ -1,0 +1,41 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/icon.png" class="mb-2" alt="logo" height="20"> Cours Académie
+    </a>
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarColor02"
+      aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse mr-20" id="navbarColor02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" (click)="setActiveMenuItem('formation')">
+          <a class="nav-link" [class.active]="activeMenuItem === 'formation'" href="/admin/formation">Formation</a>
+        </li>
+        <li class="nav-item" (click)="setActiveMenuItem('planification')">
+          <a class="nav-link" [class.active]="activeMenuItem === 'planification'" href="/planification">Planification</a>
+        </li>
+        <li class="nav-item" (click)="setActiveMenuItem('assistant')">
+          <a class="nav-link" [class.active]="activeMenuItem === 'assistant'" href="/assistant">Assistant</a>
+        </li>
+        <li class="nav-item" (click)="setActiveMenuItem('fourmateur')">
+          <a class="nav-link" [class.active]="activeMenuItem === 'fourmateur'" href="/admin/formateur">Formateur</a>
+        </li>
+        <li class="nav-item" (click)="setActiveMenuItem('formateurExterne')">
+          <a class="nav-link" [class.active]="activeMenuItem === 'formateurExterne'" href="/admin/formateurExterne">Formateur Externe</a>
+        </li>
+        <li class="nav-item" (click)="setActiveMenuItem('entreprise')">
+          <a class="nav-link" [class.active]="activeMenuItem === 'entreprise'" href="/entreprise">Entreprise</a>
+        </li>
+        <li class="nav-item" (click)="setActiveMenuItem('evaluation')">
+          <a class="nav-link" [class.active]="activeMenuItem === 'evaluation'" href="/admin/evaluation">Evaluation</a>
+        </li>
+      </ul>
+      <button mat-button [matMenuTriggerFor]="menu"><mat-icon>account_circle</mat-icon></button>
+       <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">Logout  <mat-icon>logout</mat-icon>  </button>    
+      </mat-menu>
+
+    </div>
+  </div>
+</nav>

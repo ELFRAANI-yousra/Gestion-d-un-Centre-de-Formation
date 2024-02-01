@@ -1,0 +1,43 @@
+<div>
+  <app-menu></app-menu>
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center vh-100">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Evaluation du formation</h2>
+        </div>
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit(IndividuContent)">
+          <div class="card-body">
+            <p class="card-text">Entrez votre code :</p>
+            <input formControlName="code" type="text" class="form-control" id="code" name="code" required>
+            <br>
+            <button type="submit" class="btn btn-primary">Soumettre</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #IndividuContent let-modal>
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="icon-box">
+          <i class="material-icons">&#xE5CD;</i>
+        </div>
+        <h4 class="modal-title">code est incorrect ! </h4>	
+        <br><br>
+				<p>si vous n'avez pas encore noté, veuillez contacter l'admin.</p>
+			</div>
+       <button type="button" class="btn btn-info" (click)="modal.close()">Annuler</button>
+    </div>
+  </div>
+</ng-template>
+
+
+
+

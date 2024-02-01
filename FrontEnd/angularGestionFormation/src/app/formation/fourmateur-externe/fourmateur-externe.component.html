@@ -1,0 +1,82 @@
+<div>
+  <app-menu></app-menu>
+</div><br><br>
+<div class="container-fluid mt-5">
+  <div class="card w-100 mx-auto">
+    <div class="card-header">
+      <h2 class="card-title">inscription en tant que formateur externe</h2>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit(IndividuContent)">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="nom" class="form-label">Nom:</label>
+              <input type="text" id="nom" formControlName="nom" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="prenom" class="form-label">Prenom:</label>
+              <input type="text" id="prenom" formControlName="prenom" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <div class="col-mb-3">
+          <div class="mb-3">
+            <label for="dateNaissance" class="form-label">Date de Naissance:</label>
+            <input type="date" id="dateNaissance" formControlName="dateNaissance" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="ville" class="form-label">Ville:</label>
+              <input type="text" id="ville" formControlName="ville" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="telephone" class="form-label">Telephone:</label>
+              <input type="text" id="telephone" formControlName="telephone" class="form-control" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" id="email" formControlName="email" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="motsCles" class="form-label">Mots Clés:</label>
+          <input type="text" id="motsCles" formControlName="motsCles" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="cv" class="form-label">CV :</label>
+          <input type="file" id="file" (change)="onFileChange($event)" formControlName="file" class="form-control" required>
+        </div>
+
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Postule</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #IndividuContent let-modal>
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="material-icons">&#xE876;</i>
+        </div>				
+        <h4 class="modal-title">Votre inscreption a été soumise avec succès!</h4>	
+      </div>
+       <br><br>
+        <button class="btn btn-success btn-block" (click)="modal.close()">OK</button>
+    </div>
+  </div>
+</ng-template>

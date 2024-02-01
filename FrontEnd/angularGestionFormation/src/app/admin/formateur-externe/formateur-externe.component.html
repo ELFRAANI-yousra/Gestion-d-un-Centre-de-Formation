@@ -1,0 +1,45 @@
+<div>
+  <app-admin-menu></app-admin-menu>
+</div>
+<br/><br/>
+<div class="container mt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th> ID</th>
+          <th> Nom</th>
+          <th> Prenom</th>
+          <th> Date de Naissance</th>
+          <th> Ville</th>
+          <th> Email</th>
+          <th> Telephone</th>
+          <th> Mots Cles</th>
+          <th> CV </th>
+          <th> Supprimer </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let formateurExterne of formateursExterne">
+          <td>{{ formateurExterne.id }}</td>
+          <td>{{ formateurExterne.nom }}</td>
+          <td>{{ formateurExterne.prenom }}</td>
+          <td>{{ formateurExterne.dateNaissance }}</td>
+          <td>{{ formateurExterne.ville }}</td>
+          <td>{{ formateurExterne.email }}</td>
+          <td>{{ formateurExterne.telephone }}</td>
+          <td>{{ formateurExterne.motsCles }}</td>
+          <td> <a *ngIf="formateurExterne.cv" [href]="formateurExterne.cv" target="_blank">  <button class="btn btn-primary" mat-mini-fab  color="primary">
+            <mat-icon>get_app</mat-icon>
+          </button> <span *ngIf="!formateurExterne.cv">CV non disponible</span></a></td>
+           
+          <td>
+            <button class="btn btn-danger" mat-mini-fab  color="warn" (click)="deleteFormateursExterne(formateurExterne.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+           
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
