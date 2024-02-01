@@ -2,7 +2,7 @@ package com.GCF.Services;
 
 import java.util.List;
 
-import com.GCF.Entities.Individu;
+
 import com.GCF.Entities.Planification;
 
 public interface PlanificationService {

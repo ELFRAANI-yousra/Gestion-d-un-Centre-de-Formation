@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.GCF.Entities.Individu;
 import com.GCF.Entities.Planification;
-import com.GCF.Repositories.IIndividuRepo;
 import com.GCF.Repositories.IPlanificationRepo;
 
 @Service
@@ -44,13 +43,9 @@ public class PlanificationServiceImp implements PlanificationService{
     }
     @Override
     public Planification savePlanificationWithIndividu(Planification planification, List<Long> individuIdList) {
-        //planification.setIndividu(individuServiceImp.getIndividuListByIds(individuIdList));
-        //Planification savedPlanification = planificationRepository.save(planification);
-
         for (Long individuId : individuIdList) {
             Individu existingIndividu = individuServiceImp.getIndividuById(individuId);
             String code= existingIndividu.getId()+"@1234"+planification.getId();
-            // Assuming you have a method like mergeIndividu in your service
             existingIndividu.setPlanification(planification);
             existingIndividu.setFormation(null);
             existingIndividu.setCode(code);

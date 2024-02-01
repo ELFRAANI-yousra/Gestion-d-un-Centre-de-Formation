@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.GCF.Entities.Formation;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 public interface IFormationRepo extends JpaRepository<Formation, Long>{
@@ -26,14 +25,4 @@ public interface IFormationRepo extends JpaRepository<Formation, Long>{
             @Param("categories") List<String> categories
     );
 	
-
-	/*
-	 * List<Formation> findByCategorieAndNombreHeures(String categorie, int
-	 * nombreHeures); List<Formation> findByCategorieAndCout(String categorie,
-	 * double cout); List<Formation> findByCoutAndNombreHeures(double cout, int
-	 * nombreHeures); List<Formation> findByCategorieAndCoutAndNombreHeures(String
-	 * categorie,double cout, int nombreHeures); List<Formation>
-	 * findByCategorie(String categorie); List<Formation> findByCout(double cout);
-	 * List<Formation> findByNombreHeures(int nombreHeures);
-	 */
 }
