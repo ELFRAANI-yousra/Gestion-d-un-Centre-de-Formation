@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 public class FormateurExterne {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
     private String prenom;
@@ -26,7 +26,7 @@ public class FormateurExterne {
     private String email;
     private String telephone;
     private String MotsCles;
-   
+    private String cv;
     
 
 }
